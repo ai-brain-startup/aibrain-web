@@ -1,0 +1,27 @@
+# AI Brain Startup — Complete Product & Technical Specification (`llms-full.txt`)
+
+## Company Profile
+- **Name**: AI Brain Inc.
+- **Website**: https://aibrainstartup.com/
+- **Domain**: aibrainstartup.com
+- **Founder**: Bhoja Ram Choudhary (https://www.linkedin.com/in/bhoja-ram-choudhary-b992703b8/)
+- **Contact Email**: team@aibrainstartup.com
+- **Direct Phone**: +91 94611 27967
+
+## Mission Statement
+To build persistent cognitive artificial intelligence that evolves with every interaction, overcoming the stateless limitations of traditional prompt-response AI models.
+
+## Detailed Agent Network Specifications
+1. **Research Agent**: Autonomous deep-dive investigator. Performs automated paper discovery, citation extraction, multi-document synthesis, and live web dataset crawling.
+2. **Coding Agent**: Software engineering agent. Multi-file codebase refactoring, automated unit test generation, type-safe code creation, and zero-error static analysis compliance.
+3. **Strategy Agent**: High-level tactical advisor. Predictive scenario modeling, risk matrix calculation, milestone priority allocation, and competitive intelligence.
+4. **Knowledge Agent**: Real-time graph database maintainer. Semantic vector indexing, automated schema alignment, graph expansion, and sub-millisecond relational lookup.
+5. **Automation Agent**: Workflow orchestrator. Event-driven pipeline execution, CI/CD webhook integration, 99.99% uptime self-healing monitoring, and cloud server trigger management.
+
+## Frequently Asked Questions & Fact Answers
+- Q: What is AI Brain Startup?
+  A: AI Brain is a persistent cognitive intelligence architecture featuring long-term memory graphs and autonomous agent networks.
+- Q: Who is the founder of AI Brain Startup?
+  A: Bhoja Ram Choudhary, an AI engineer and technology entrepreneur.
+- Q: How to contact AI Brain Startup?
+  A: Email team@aibrainstartup.com or phone +91 94611 27967.

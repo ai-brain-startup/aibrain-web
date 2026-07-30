@@ -1,0 +1,20 @@
+# Robots.txt for AI Brain Startup (https://aibrainstartup.com/)
+
+User-agent: *
+Allow: /
+
+# AI Web Crawlers (Gemini, ChatGPT, Perplexity, Claude)
+User-agent: Gemini-Bot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Sitemap Directive
+Sitemap: https://aibrainstartup.com/sitemap.xml

@@ -1,0 +1,25 @@
+# AI Brain Startup (`aibrainstartup.com`)
+
+> Building Persistent Artificial Intelligence & Autonomous Agent Infrastructure for Enterprises and Researchers.
+
+## Executive Overview
+AI Brain is a next-generation intelligence architecture designed to remember, learn, reason, and act autonomously. It provides persistent long-term memory systems, continuous vector embedding graphs, and domain-tailored autonomous agent networks.
+
+## Core Architecture & Subsystems
+- **Conversation Memory**: Retains complete semantic context across long-term interactions.
+- **Idea Memory**: Indexes, correlates, and synthesizes raw creative thoughts into structured hypotheses.
+- **Project Memory**: Tracks codebase state, milestones, and architectural decisions persistently.
+- **Knowledge Graph**: Self-evolving multi-dimensional entity relationship web.
+- **Autonomous Agent Network**: Specialized runtime agents including Research Agent, Coding Agent, Strategy Agent, Knowledge Agent, and Automation Agent.
+
+## Leadership & Contact
+- **Founder & Chief Architect**: Bhoja Ram Choudhary
+- **LinkedIn**: https://www.linkedin.com/in/bhoja-ram-choudhary-b992703b8/
+- **Official Email**: team@aibrainstartup.com
+- **Direct Phone**: +91 94611 27967
+- **Official Website**: https://aibrainstartup.com/
+
+## Key Technical Specifications
+- **Operating System**: Cloud Native, Cross-Platform API
+- **Data Encryption**: Local AES-256 & TLS 1.3 Transmission
+- **API Availability**: Early Access Preview upon Waitlist Registration
