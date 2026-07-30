@@ -3,16 +3,17 @@
 # 🧠 AI Brain — Neuromorphic Cognitive Hypergraph Engine
 ### Persistent Intelligence & Autonomous Agent Swarm Infrastructure
 
-[![Live Website](https://img.shields.io/badge/Website-aibrainstartup.com-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=white)](https://aibrain-startup.vercel.app)
-[![Govt MSME Verified](https://img.shields.io/badge/Govt_of_India_MSME-UDYAM--RJ--05--0067280-ff9933?style=for-the-badge&logo=gov.br&logoColor=white)](https://aibrain-startup.vercel.app/about.html)
-[![Architecture Spec](https://img.shields.io/badge/Architecture-Google_Cloud_GKE_%26_TPU-7000ff?style=for-the-badge&logo=googlecloud&logoColor=white)](https://aibrain-startup.vercel.app/architecture.html)
+[![Official Domain](https://img.shields.io/badge/Official_Domain-aibrainstartup.com-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=white)](https://aibrainstartup.com)
+[![Vercel Deployment](https://img.shields.io/badge/Vercel_Live-aibrain--startup.vercel.app-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://aibrain-startup.vercel.app)
+[![Govt MSME Verified](https://img.shields.io/badge/Govt_of_India_MSME-UDYAM--RJ--05--0067280-ff9933?style=for-the-badge&logo=gov.br&logoColor=white)](https://aibrainstartup.com/about.html)
+[![Architecture Spec](https://img.shields.io/badge/Architecture-Google_Cloud_GKE_%26_TPU-7000ff?style=for-the-badge&logo=googlecloud&logoColor=white)](https://aibrainstartup.com/architecture.html)
 [![Status](https://img.shields.io/badge/Status-Production_Ready-10b981?style=for-the-badge)](https://github.com/ai-brain-startup/aibrain-web)
 
 <p align="center">
   <b>Eliminating LLM Context Decay & Powering 24/7 Autonomous Agent Networks</b>
 </p>
 
-[🌐 Live Platform](https://aibrain-startup.vercel.app) • [🏛️ Cloud Architecture](https://aibrain-startup.vercel.app/architecture.html) • [📚 Developer Docs](https://aibrain-startup.vercel.app/docs.html) • [📧 Contact Founder](https://aibrain-startup.vercel.app/contact.html)
+[🌐 Primary Domain](https://aibrainstartup.com) • [⚡ Vercel Mirror](https://aibrain-startup.vercel.app) • [🏛️ Cloud Architecture](https://aibrainstartup.com/architecture.html) • [📚 Developer Docs](https://aibrainstartup.com/docs.html) • [📧 Contact Founder](https://aibrainstartup.com/contact.html)
 
 </div>
 
