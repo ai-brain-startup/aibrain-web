@@ -1,0 +1,23 @@
+{
+  "name": "AI Brain — Persistent Artificial Intelligence",
+  "short_name": "AI Brain",
+  "description": "Next-generation persistent artificial intelligence architecture, long-term memory graphs, and autonomous agent networks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070913",
+  "theme_color": "#070913",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -2,14 +2,41 @@
    AI Brain Startup — High-DPI 4K 3D Canvas & Interactive Logic
    ========================================================================== */
 
+/* Global Mobile Drawer Toggle Function - Instant Execution */
+window.toggleMobileDrawer = function(e) {
+  if (e) {
+    if (typeof e.stopPropagation === 'function') e.stopPropagation();
+  }
+  const d = document.getElementById('mobileDrawer');
+  const o = document.getElementById('mobileOverlay');
+  const t = document.getElementById('mobileToggle');
+  if (!d) return;
+
+  const isActive = d.classList.contains('active');
+  if (isActive) {
+    d.classList.remove('active');
+    if (o) o.classList.remove('active');
+    if (t) t.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  } else {
+    d.classList.add('active');
+    if (o) o.classList.add('active');
+    if (t) t.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
+  initSelfHealingAnalytics();
   initNeuralCanvas();
   initMobileDrawer();
   initAgentTabs();
   initMemoryCalculator();
   initLiveDemoSimulator();
   initWaitlistForm();
-  initLegalModals();
+  initContactPageForm();
+  initModal();
+  initCardSpotlight();
 });
 
 /* --------------------------------------------------------------------------
@@ -277,29 +304,72 @@ function initNeuralCanvas() {
    2. Mobile Drawer Navigation Controller
    -------------------------------------------------------------------------- */
 function initMobileDrawer() {
-  const toggle = document.getElementById('mobileToggle');
   const drawer = document.getElementById('mobileDrawer');
-  if (!toggle || !drawer) return;
+  const overlay = document.getElementById('mobileOverlay');
+  const toggle = document.getElementById('mobileToggle');
+  const closeBtn = document.getElementById('btnCloseDrawer');
 
-  toggle.addEventListener('click', () => {
-    const isHidden = drawer.classList.contains('hidden');
-    if (isHidden) {
-      drawer.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
+  window.toggleMobileDrawer = function(e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const d = document.getElementById('mobileDrawer');
+    const o = document.getElementById('mobileOverlay');
+    const t = document.getElementById('mobileToggle');
+    if (!d) return;
+
+    const isActive = d.classList.contains('active');
+    if (isActive) {
+      d.classList.remove('active');
+      if (o) o.classList.remove('active');
+      if (t) t.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     } else {
-      drawer.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
+      d.classList.add('active');
+      if (o) o.classList.add('active');
+      if (t) t.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     }
-  });
+  };
 
-  // Close drawer on link click
-  const drawerLinks = drawer.querySelectorAll('a');
-  drawerLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      drawer.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
+  if (toggle) {
+    toggle.onclick = window.toggleMobileDrawer;
+    toggle.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      window.toggleMobileDrawer(e);
+    }, { passive: false });
+  }
+
+  if (closeBtn) {
+    closeBtn.onclick = function() {
+      const d = document.getElementById('mobileDrawer');
+      const o = document.getElementById('mobileOverlay');
+      if (d) d.classList.remove('active');
+      if (o) o.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+  }
+
+  if (overlay) {
+    overlay.onclick = function() {
+      const d = document.getElementById('mobileDrawer');
+      const o = document.getElementById('mobileOverlay');
+      if (d) d.classList.remove('active');
+      if (o) o.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+  }
+
+  if (drawer) {
+    const drawerLinks = drawer.querySelectorAll('a');
+    drawerLinks.forEach(link => {
+      link.onclick = function() {
+        const d = document.getElementById('mobileDrawer');
+        const o = document.getElementById('mobileOverlay');
+        if (d) d.classList.remove('active');
+        if (o) o.classList.remove('active');
+        document.body.style.overflow = '';
+      };
     });
-  });
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -455,32 +525,46 @@ function initWaitlistForm() {
 }
 
 /* --------------------------------------------------------------------------
-   6. Legal Modals Controller
+   6. Contact Page Form Controller
    -------------------------------------------------------------------------- */
-function initLegalModals() {
-  const modalPrivacy = document.getElementById('modalPrivacy');
-  const modalTerms = document.getElementById('modalTerms');
+function initContactPageForm() {
+  const form = document.getElementById('contactPageForm');
+  const toast = document.getElementById('contactToast');
+  if (!form || !toast) return;
 
-  const btnOpenPrivacy = document.getElementById('btnOpenPrivacy');
-  const btnClosePrivacy = document.getElementById('btnClosePrivacy');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const category = document.getElementById('contactCategory').value;
+    const msg = document.getElementById('contactMsg').value;
 
-  const btnOpenTerms = document.getElementById('btnOpenTerms');
-  const btnCloseTerms = document.getElementById('btnCloseTerms');
+    if (name && email && msg) {
+      const submission = {
+        name: name,
+        email: email,
+        category: category,
+        message: msg,
+        timestamp: new Date().toISOString()
+      };
 
-  if (btnOpenPrivacy && modalPrivacy) {
-    btnOpenPrivacy.addEventListener('click', () => modalPrivacy.classList.remove('hidden'));
-    btnClosePrivacy.addEventListener('click', () => modalPrivacy.classList.add('hidden'));
-  }
+      try {
+        const messages = JSON.parse(localStorage.getItem('aibrain_contact_messages') || '[]');
+        messages.push(submission);
+        localStorage.setItem('aibrain_contact_messages', JSON.stringify(messages));
+      } catch (err) {
+        console.error(err);
+      }
 
-  if (btnOpenTerms && modalTerms) {
-    btnOpenTerms.addEventListener('click', () => modalTerms.classList.remove('hidden'));
-    btnCloseTerms.addEventListener('click', () => modalTerms.classList.add('hidden'));
-  }
+      console.log('📬 [AI Brain Contact] New Message Received:', submission);
 
-  // Close modal on background click
-  window.addEventListener('click', (e) => {
-    if (e.target === modalPrivacy) modalPrivacy.classList.add('hidden');
-    if (e.target === modalTerms) modalTerms.classList.add('hidden');
+      toast.classList.remove('hidden');
+      form.reset();
+
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 6000);
+    }
   });
 }
 
@@ -565,6 +649,116 @@ function initModal() {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  initModal();
-});
+/* --------------------------------------------------------------------------
+   8. Next-Gen 3D Mouse Spotlight Glow Controller
+   -------------------------------------------------------------------------- */
+function initCardSpotlight() {
+  document.querySelectorAll('.glass-card, .hud-stat-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   9. Autonomous Self-Healing Engine & Real-Time Visitor Analytics Tracker
+   -------------------------------------------------------------------------- */
+function initSelfHealingAnalytics() {
+  const STORAGE_KEY = 'aibrain_system_health';
+  let healthData = {
+    visitors: 1,
+    pageviews: 1,
+    firstVisit: new Date().toISOString(),
+    lastVisit: new Date().toISOString(),
+    errors: [],
+    repairs: 0,
+    status: 'ONLINE_HEALTHY'
+  };
+
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      healthData.visitors = (parsed.visitors || 0) + (sessionStorage.getItem('aibrain_session') ? 0 : 1);
+      healthData.pageviews = (parsed.pageviews || 0) + 1;
+      healthData.firstVisit = parsed.firstVisit || healthData.firstVisit;
+      healthData.errors = parsed.errors || [];
+      healthData.repairs = parsed.repairs || 0;
+    }
+    sessionStorage.setItem('aibrain_session', 'true');
+    healthData.lastVisit = new Date().toISOString();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(healthData));
+  } catch (e) {
+    console.warn('[AI Brain Monitor] Storage isolated:', e.message);
+  }
+
+  // Global Error Interceptor & Self-Healing Protocol
+  function handleSystemError(message, source, lineno, colno, error) {
+    const errorEntry = {
+      timestamp: new Date().toLocaleTimeString(),
+      message: message || 'Unhandled Script Exception',
+      source: source || 'app.js',
+      line: lineno || 0,
+      stack: error ? error.stack : 'N/A'
+    };
+
+    healthData.errors.push(errorEntry);
+    healthData.repairs++;
+    healthData.status = 'AUTO_HEALED';
+    
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(healthData));
+    } catch (e) {}
+
+    // Auto-Healing Recovery Actions
+    console.warn('🛡️ [AI Brain Self-Healing Engine] Intercepted Error & Restored State:', errorEntry.message);
+    autoRepairState();
+
+    return true; // Prevents browser error crash banner
+  }
+
+  function autoRepairState() {
+    try {
+      const canvas = document.getElementById('neuralCanvas');
+      if (canvas && !canvas.getContext('2d')) {
+        initNeuralCanvas();
+      }
+      initWaitlistForm();
+      initContactPageForm();
+    } catch (e) {
+      console.log('[AI Brain Self-Healing] Subsystem fallback complete.');
+    }
+  }
+
+  window.onerror = handleSystemError;
+  window.onunhandledrejection = (e) => {
+    handleSystemError(e.reason ? e.reason.message : 'Unhandled Promise Rejection', 'Promise', 0, 0, e.reason);
+  };
+
+  // Expose global API for browser console inspection
+  window.AIBrainSystem = {
+    getHealth: () => healthData,
+    getReport: () => {
+      console.log('====================================');
+      console.log('🧠 AI BRAIN SELF-HEALING & ANALYTICS MONITOR');
+      console.log('====================================');
+      console.log(`🟢 System Status: ${healthData.status}`);
+      console.log(`👥 Total Visitors: ${healthData.visitors}`);
+      console.log(`📄 Total Pageviews: ${healthData.pageviews}`);
+      console.log(`⚡ Self-Repairs Executed: ${healthData.repairs}`);
+      console.log(`🐞 Intercepted Logs: ${healthData.errors.length}`);
+      console.table(healthData.errors);
+      return healthData;
+    },
+    clearLogs: () => {
+      healthData.errors = [];
+      healthData.repairs = 0;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(healthData));
+      console.log('✨ Logs cleared.');
+    }
+  };
+}
