@@ -79,7 +79,40 @@ result = client.agents.dispatch(
 
 <span class="code-success">print(result.summary)</span></code></pre>
 
-        <h2 style="color: var(--cyan); margin-bottom: 16px;">3. API Rate Limits & Scaling</h2>
+        <h2 style="color: var(--cyan); margin-bottom: 16px;">3. Cloud Infrastructure Pipeline</h2>
+        <div class="gcp-arch-visual glass-card" style="margin-bottom: 30px;">
+          <div class="gcp-arch-header">
+            <span class="gcp-arch-badge">GOOGLE CLOUD FOR STARTUPS INFRASTRUCTURE</span>
+            <h3>Cloud-Native Persistent Memory Pipeline</h3>
+          </div>
+          <div class="gcp-flow-grid">
+            <div class="gcp-flow-node">
+              <div class="node-badge">CLIENT LAYER</div>
+              <div class="node-title">@aibrain/sdk</div>
+              <div class="node-desc">TypeScript & Python SDKs via gRPC / REST</div>
+            </div>
+            <div class="gcp-flow-arrow">➔</div>
+            <div class="gcp-flow-node highlight-gcp">
+              <div class="node-badge">COMPUTE LAYER</div>
+              <div class="node-title">Google Cloud Run</div>
+              <div class="node-desc">Auto-scaling Serverless API Gateway</div>
+            </div>
+            <div class="gcp-flow-arrow">➔</div>
+            <div class="gcp-flow-node highlight-gemini">
+              <div class="node-badge">AI / COGNITION</div>
+              <div class="node-title">Vertex AI & Gemini 1.5</div>
+              <div class="node-desc">Context Synthesis & Vector Embeddings</div>
+            </div>
+            <div class="gcp-flow-arrow">➔</div>
+            <div class="gcp-flow-node highlight-storage">
+              <div class="node-badge">PERSISTENCE</div>
+              <div class="node-title">Cloud Firestore & BigQuery</div>
+              <div class="node-desc">Vector Graph Index & Enterprise Analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="color: var(--cyan); margin-bottom: 16px;">4. API Rate Limits & Scaling</h2>
         <p style="color: var(--text-muted); line-height: 1.8;">
           The early developer tier supports up to <strong>10,000 memory vector retrievals per month</strong> with sub-50ms latency. For enterprise self-hosted cluster deployments on Google Cloud, contact <a href="mailto:team@aibrainstartup.com" class="link-glow">team@aibrainstartup.com</a>.
         </p>

@@ -211,9 +211,17 @@
     <div class="hero-bg-glow"></div>
     <div class="hero-container">
       <div class="hero-content">
-        <div class="badge-pill">
-          <span class="badge-icon">⚡</span>
-          <span>Next-Generation Cognitive Architecture</span>
+        <div class="badge-row">
+          <div class="badge-pill">
+            <span class="badge-icon">⚡</span>
+            <span>Next-Generation Cognitive Architecture</span>
+          </div>
+          <div class="badge-pill gcp-pill">
+            <svg class="gcp-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+              <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
+            </svg>
+            <span>Built on Google Cloud & Gemini</span>
+          </div>
         </div>
         
         <h1 class="hero-title" itemprop="name">
@@ -319,6 +327,36 @@ response = client.agents.<span class="code-keyword">run</span>(
           <div class="card-icon blue">🕸️</div>
           <h3>Knowledge Graph</h3>
           <p>Maps multi-dimensional relationships between entities, forming a self-evolving web of interconnected intelligence.</p>
+      <!-- Google Cloud Infrastructure Flow Visual -->
+      <div class="gcp-arch-visual glass-card">
+        <div class="gcp-arch-header">
+          <span class="gcp-arch-badge">GOOGLE CLOUD FOR STARTUPS INFRASTRUCTURE</span>
+          <h3>Cloud-Native Persistent Memory Pipeline</h3>
+        </div>
+        <div class="gcp-flow-grid">
+          <div class="gcp-flow-node">
+            <div class="node-badge">CLIENT LAYER</div>
+            <div class="node-title">@aibrain/sdk</div>
+            <div class="node-desc">TypeScript & Python SDKs via gRPC / REST</div>
+          </div>
+          <div class="gcp-flow-arrow">➔</div>
+          <div class="gcp-flow-node highlight-gcp">
+            <div class="node-badge">COMPUTE LAYER</div>
+            <div class="node-title">Google Cloud Run</div>
+            <div class="node-desc">Auto-scaling Serverless API Gateway</div>
+          </div>
+          <div class="gcp-flow-arrow">➔</div>
+          <div class="gcp-flow-node highlight-gemini">
+            <div class="node-badge">AI / COGNITION</div>
+            <div class="node-title">Vertex AI & Gemini 1.5</div>
+            <div class="node-desc">Context Synthesis & Vector Embeddings</div>
+          </div>
+          <div class="gcp-flow-arrow">➔</div>
+          <div class="gcp-flow-node highlight-storage">
+            <div class="node-badge">PERSISTENCE</div>
+            <div class="node-title">Cloud Firestore & BigQuery</div>
+            <div class="node-desc">Vector Graph Index & Enterprise Analytics</div>
+          </div>
         </div>
       </div>
     </div>
