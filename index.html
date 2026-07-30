@@ -754,10 +754,13 @@ response = client.agents.<span class="code-keyword">run</span>(
   <!-- Terms & Privacy Modal Popup -->
   <div id="termsModal" class="modal-backdrop">
     <div class="modal-box glass-card">
-      <button class="modal-close" id="btnCloseModal">&times;</button>
+      <button class="modal-close" id="btnCloseModal" title="Close Modal">&times;</button>
       <div class="modal-header">
-        <span class="modal-badge">LEGAL COMPLIANCE</span>
-        <h2>Terms of Service & Privacy Summary</h2>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap;">
+          <span class="modal-badge">LEGAL COMPLIANCE</span>
+          <button class="btn btn-outline btn-sm modal-back-btn" id="btnHeaderBackHome" onclick="document.getElementById('termsModal').classList.remove('active')" style="padding: 4px 10px; font-size: 0.72rem;">← Back to Home</button>
+        </div>
+        <h2 style="margin: 0; padding-right: 28px;">Terms of Service & Privacy Summary</h2>
       </div>
       <div class="modal-body">
         <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">1. Terms Overview</h3>
@@ -772,10 +775,15 @@ response = client.agents.<span class="code-keyword">run</span>(
         <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">4. Official Contact</h3>
         <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">For questions or enterprise self-hosted cluster inquiries, contact <a href="mailto:team@aibrainstartup.com" class="link-glow">team@aibrainstartup.com</a>.</p>
       </div>
-      <div class="modal-footer">
-        <a href="privacy-policy.html" class="btn btn-outline btn-sm">Full Privacy Policy</a>
-        <a href="terms-of-service.html" class="btn btn-outline btn-sm">Full Terms Page</a>
-        <button class="btn btn-primary btn-sm" id="btnAcceptModal">I Understand</button>
+      <div class="modal-footer" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="privacy-policy.html" class="btn btn-outline btn-sm">Full Privacy Policy</a>
+          <a href="terms-of-service.html" class="btn btn-outline btn-sm">Full Terms Page</a>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-outline btn-sm" id="btnFooterBackHome" onclick="document.getElementById('termsModal').classList.remove('active')">← Back to Home</button>
+          <button class="btn btn-primary btn-sm" id="btnAcceptModal">I Understand</button>
+        </div>
       </div>
     </div>
   </div>

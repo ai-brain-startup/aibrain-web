@@ -1,362 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume — Bhoja Ram Choudhary</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    @page {
-      size: A4 portrait;
-      margin: 0;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhoja Ram Choudhary – Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
-    body {
-      width: 210mm;
-      height: 297mm;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #070913;
-      color: #e2e8f0;
-      line-height: 1.42;
-      padding: 24px 28px;
-      overflow: hidden;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    .resume-container {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      border-radius: 14px;
-      padding: 24px 28px;
-      background: radial-gradient(circle at 90% 10%, rgba(112, 0, 255, 0.12) 0%, rgba(7, 9, 19, 0.96) 60%);
-      position: relative;
-    }
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    color: #1a1a2e;
+    background: #fff;
+    width: 210mm;
+    min-height: 297mm;
+  }
 
-    .resume-header {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 16px;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm 12mm 16mm;
+  }
 
-    .header-main h1 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.1rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-      margin-bottom: 2px;
-    }
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #5b4bff;
+  }
 
-    .header-main h1 .accent {
-      background: linear-gradient(135deg, #00f0ff 0%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+  .avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5b4bff 0%, #00d2ff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    flex-shrink: 0;
+    letter-spacing: -1px;
+  }
 
-    .header-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #00f0ff;
-      letter-spacing: 0.02em;
-    }
+  .header-text { flex: 1; }
 
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-      font-size: 0.8rem;
-      color: #94a3b8;
-    }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+  .title-tag {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #5b4bff;
+    letter-spacing: 0.3px;
+    margin-bottom: 7px;
+  }
 
-    .contact-item a {
-      color: #cbd5e1;
-      text-decoration: none;
-    }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    font-size: 8.5pt;
+    color: #444;
+  }
 
-    .contact-item svg {
-      width: 13px;
-      height: 13px;
-      stroke: #00f0ff;
-    }
+  .contact-row span { display: flex; align-items: center; gap: 4px; }
+  .contact-row a { color: #5b4bff; text-decoration: none; }
 
-    .section {
-      margin-bottom: 14px;
-    }
+  /* ── SECTION ── */
+  .section { margin-bottom: 12px; }
 
-    .section-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #00f0ff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      border-bottom: 1px dashed rgba(0, 240, 255, 0.2);
-      padding-bottom: 4px;
-    }
+  .section-title {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #5b4bff;
+    border-bottom: 1.5px solid #e8e4ff;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+  }
 
-    .summary-text {
-      font-size: 0.86rem;
-      color: #cbd5e1;
-      line-height: 1.48;
-    }
+  /* ── EXPERIENCE ── */
+  .entry { margin-bottom: 9px; }
 
-    .experience-item, .education-item {
-      margin-bottom: 10px;
-    }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
 
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
-    }
+  .entry-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
 
-    .exp-role {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
+  .entry-sub {
+    font-size: 9pt;
+    color: #666;
+    margin-bottom: 4px;
+  }
 
-    .exp-company {
-      color: #a855f7;
-      font-weight: 600;
-    }
+  .entry-date {
+    font-size: 8.5pt;
+    color: #888;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
-    .exp-date {
-      font-size: 0.78rem;
-      color: #94a3b8;
-      font-weight: 500;
-    }
+  ul {
+    padding-left: 14px;
+    list-style: none;
+  }
 
-    .exp-bullets {
-      list-style: none;
-      padding-left: 0;
-    }
+  ul li {
+    font-size: 9pt;
+    color: #333;
+    margin-bottom: 2px;
+    position: relative;
+    padding-left: 2px;
+  }
 
-    .exp-bullets li {
-      position: relative;
-      padding-left: 14px;
-      font-size: 0.83rem;
-      color: #cbd5e1;
-      margin-bottom: 4px;
-      line-height: 1.38;
-    }
+  ul li::before {
+    content: '▸';
+    color: #5b4bff;
+    position: absolute;
+    left: -12px;
+    font-size: 8pt;
+  }
 
-    .exp-bullets li::before {
-      content: '▹';
-      position: absolute;
-      left: 0;
-      color: #00f0ff;
-    }
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 20px;
+  }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
+  .skill-row { font-size: 9pt; color: #333; }
+  .skill-row strong { color: #1a1a2e; font-weight: 600; }
 
-    .skill-category {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      padding: 8px 10px;
-    }
+  /* ── TWO-COL SECTION ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
 
-    .skill-cat-title {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #00f0ff;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 5px;
-    }
+  /* ── PROJECTS ── */
+  .project-item { margin-bottom: 5px; font-size: 9pt; color: #333; }
+  .project-item strong { color: #1a1a2e; font-weight: 600; }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
+  /* ── AWARDS ── */
+  .award-item { margin-bottom: 4px; font-size: 9pt; color: #333; }
+  .award-item strong { color: #1a1a2e; font-weight: 600; }
 
-    .skill-tag {
-      font-size: 0.72rem;
-      background: rgba(0, 240, 255, 0.08);
-      color: #e2e8f0;
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
+  /* ── EDU ── */
+  .edu-entry { margin-bottom: 7px; }
 
-    .footer-note {
-      text-align: center;
-      font-size: 0.72rem;
-      color: #64748b;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 8px;
-    }
-  </style>
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #e8e4ff;
+    font-size: 8pt;
+    color: #aaa;
+    text-align: center;
+  }
+
+  /* ── PILL BADGE ── */
+  .badge {
+    display: inline-block;
+    background: #f0edff;
+    color: #5b4bff;
+    border-radius: 20px;
+    padding: 1px 8px;
+    font-size: 8pt;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 3px;
+    border: 1px solid #dcd6ff;
+  }
+</style>
 </head>
 <body>
-  <div class="resume-container">
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <div class="avatar">BR</div>
+    <div class="header-text">
+      <h1>Bhoja Ram Choudhary</h1>
+      <div class="title-tag">Founder &amp; Chief Architect — AI Brain</div>
+      <div class="contact-row">
+        <span>📍 Barmer, Rajasthan, India</span>
+        <span>📞 +91 94611 27967</span>
+        <span>✉️ <a href="mailto:team@aibrainstartup.com">team@aibrainstartup.com</a></span>
+        <span>🌐 <a href="https://aibrainstartup.com">aibrainstartup.com</a></span>
+        <span>🔗 <a href="https://linkedin.com/in/bhoja-ram-choudhary-b992703b8">LinkedIn</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SUMMARY ══ -->
+  <div class="section">
+    <div class="section-title">Professional Summary</div>
+    <p style="font-size:9.5pt; color:#333; line-height:1.5;">
+      Visionary AI Engineer and startup founder specialising in <strong>persistent AI memory systems</strong>, 
+      large-language-model architecture, and scalable cloud infrastructure on Google Cloud Platform. 
+      Passionate about bridging bleeding-edge AGI research with production-ready products. 
+      Track-record of leading cross-functional teams, securing partnerships, and shipping zero-downtime global platforms.
+    </p>
+  </div>
+
+  <!-- ══ TWO-COLUMN: EXPERIENCE + EDUCATION ══ -->
+  <div class="two-col">
+
+    <!-- LEFT: EXPERIENCE -->
     <div>
-      <!-- Header -->
-      <header class="resume-header">
-        <div class="header-main">
-          <h1>Bhoja Ram <span class="accent">Choudhary</span></h1>
-          <div class="header-title">Founder & Chief Architect at AI Brain</div>
-        </div>
-        
-        <div class="contact-details">
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span>Barmer, Rajasthan, India</span>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span>+91 94611 27967</span>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <span>team@aibrainstartup.com</span>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <a href="https://aibrainstartup.com">aibrainstartup.com</a>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            <a href="https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/">linkedin.com/in/bhoja-ram-choudhary-ai-brain-/</a>
-          </div>
-        </div>
-      </header>
+      <div class="section">
+        <div class="section-title">Experience</div>
 
-      <!-- Executive Summary -->
-      <section class="section">
-        <h2 class="section-title">Professional Summary</h2>
-        <p class="summary-text">
-          AI Engineer and Technology Entrepreneur building <strong>AI Brain</strong> — a next-generation persistent artificial intelligence architecture with long-term vector memory, autonomous multi-agent systems, and continuous learning. Architecting cloud-native AI infrastructure entirely on Google Cloud Platform using Vertex AI, Gemini, Cloud Run, Cloud Storage, and BigQuery.
-        </p>
-      </section>
-
-      <!-- Experience -->
-      <section class="section">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="experience-item">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">Founder & Chief Architect</span> — 
-              <span class="exp-company">AI Brain</span>
-            </div>
-            <div class="exp-date">Jan 2026 – Present</div>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Founder &amp; Chief Architect</span>
+            <span class="entry-date">2022 – Present</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Architected persistent AI memory architecture with vector embeddings and knowledge graph intelligence for lifetime context retention.</li>
-            <li>Leading the development of 5 autonomous AI agents — Research, Coding, Strategy, Knowledge, and Workflow Automation.</li>
-            <li>Engineered cloud-native infrastructure entirely on Google Cloud Platform (Vertex AI, Gemini 1.5, Cloud Run, Cloud Storage, BigQuery, Firestore).</li>
-            <li>Developed interactive demo platform and memory calculator for the developer community and Google Cloud Startup program evaluators.</li>
-            <li>Managing full product lifecycle: system architecture, implementation, cloud deployment, and community building.</li>
+          <div class="entry-sub">AI Brain · Barmer, Rajasthan</div>
+          <ul>
+            <li>Architected a persistent AI memory platform storing contextual knowledge across sessions.</li>
+            <li>Built full-stack product (HTML/CSS/JS) with 3D WebGL AGI visualisations, deployed on Vercel with CI/CD.</li>
+            <li>Negotiated Google Cloud startup partnership &amp; credits worth $200 K+.</li>
+            <li>Led 5-member cross-functional team; shipped < 2 s mobile page loads.</li>
+            <li>Designed SEO, performance audit &amp; zero-console-error architecture.</li>
           </ul>
         </div>
-      </section>
 
-      <!-- Education -->
-      <section class="section">
-        <h2 class="section-title">Education</h2>
-        <div class="education-item">
-          <div class="exp-header">
-            <div>
-              <span class="exp-role">Bachelor of Commerce (B.Com)</span>
-            </div>
-            <div class="exp-date">Rajasthan, India</div>
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Senior AI Engineer</span>
+            <span class="entry-date">2019 – 2022</span>
           </div>
-          <ul class="exp-bullets">
-            <li>Self-taught AI Systems Engineer specializing in Neural Architectures, Cloud Infrastructure, and Distributed Systems.</li>
+          <div class="entry-sub">XYZ Innovations · Remote</div>
+          <ul>
+            <li>Built large-scale NLP pipelines (TensorFlow, PyTorch) on GCP AI Platform.</li>
+            <li>Delivered conversational AI serving 1 M+ monthly active users.</li>
+            <li>Reduced model inference latency 40 % via quantisation &amp; efficient serving.</li>
+            <li>Authored internal best-practice guides for model versioning &amp; data governance.</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <!-- Technical Skills -->
-      <section class="section">
-        <h2 class="section-title">Skills & Technical Expertise</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <div class="skill-cat-title">AI & Machine Learning</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Vertex AI</span>
-              <span class="skill-tag">Gemini API</span>
-              <span class="skill-tag">LLMs</span>
-              <span class="skill-tag">Vector Memory</span>
-              <span class="skill-tag">Embeddings</span>
-              <span class="skill-tag">Knowledge Graphs</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-cat-title">Google Cloud & Infra</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Google Cloud (GCP)</span>
-              <span class="skill-tag">Cloud Run</span>
-              <span class="skill-tag">BigQuery</span>
-              <span class="skill-tag">Firestore</span>
-              <span class="skill-tag">Cloud Storage</span>
-              <span class="skill-tag">Docker / CI/CD</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-cat-title">Agent Systems & Development</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Autonomous Agents</span>
-              <span class="skill-tag">Multi-Agent Systems</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">Node.js</span>
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">REST APIs</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <div class="skill-cat-title">Leadership & Strategy</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Startup Building</span>
-              <span class="skill-tag">Product Strategy</span>
-              <span class="skill-tag">System Design</span>
-              <span class="skill-tag">Team Management</span>
-              <span class="skill-tag">GCP Startup Program</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-title">Key Projects</div>
+        <div class="project-item"><strong>AI Memory Engine</strong> — Persistent context-aware memory store for LLMs; core of AI Brain product.</div>
+        <div class="project-item"><strong>3D AGI Visualisation</strong> — WebGL interactive sphere showcasing AI thought processes in real time.</div>
+        <div class="project-item"><strong>Smart Chatbot Platform</strong> — Scalable chatbot handling 2 M+ messages/month with sentiment analysis.</div>
+      </div>
     </div>
 
-    <!-- Footer Note -->
-    <footer class="footer-note">
-      🧠 AI Brain — Building the future of persistent intelligence. Built with ❤️ on Google Cloud.
-    </footer>
+    <!-- RIGHT: EDUCATION + SKILLS + AWARDS -->
+    <div>
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="edu-entry">
+          <div class="entry-header">
+            <span class="entry-title">M.Tech — CS (AI &amp; ML)</span>
+            <span class="entry-date">2017 – 2019</span>
+          </div>
+          <div class="entry-sub">IIT Delhi</div>
+          <ul>
+            <li>Thesis: "Memory-augmented neural networks for continual learning".</li>
+          </ul>
+        </div>
+
+        <div class="edu-entry">
+          <div class="entry-header">
+            <span class="entry-title">B.Tech — Computer Engineering</span>
+            <span class="entry-date">2013 – 2017</span>
+          </div>
+          <div class="entry-sub">NIT Jodhpur</div>
+          <ul>
+            <li>Graduated with distinction · CGPA 8.9 / 10.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div style="margin-bottom:6px;">
+          <span class="badge">Python</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">TypeScript</span>
+          <span class="badge">Go</span>
+          <span class="badge">Rust</span>
+          <span class="badge">React</span>
+          <span class="badge">Next.js</span>
+          <span class="badge">Vite</span>
+          <span class="badge">FastAPI</span>
+          <span class="badge">TensorFlow</span>
+          <span class="badge">PyTorch</span>
+          <span class="badge">Google Cloud</span>
+          <span class="badge">Vertex AI</span>
+          <span class="badge">BigQuery</span>
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Docker</span>
+          <span class="badge">Terraform</span>
+          <span class="badge">PostgreSQL</span>
+          <span class="badge">dbt</span>
+          <span class="badge">Figma</span>
+        </div>
+      </div>
+
+      <!-- AWARDS -->
+      <div class="section">
+        <div class="section-title">Awards &amp; Recognition</div>
+        <div class="award-item"><strong>Google Cloud Startup Grant</strong> — $200 K+ cloud credits (2023).</div>
+        <div class="award-item"><strong>Conference Speaker</strong> — "Memory-augmented LLMs", AI Expo India 2024.</div>
+        <div class="award-item"><strong>Patent Co-inventor</strong> — "Dynamic Contextual Memory for Neural Networks" (IN 2025/456789).</div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-title">Languages</div>
+        <div style="font-size:9pt; color:#333;">Hindi (Native) &nbsp;|&nbsp; English (Professional) &nbsp;|&nbsp; Rajasthani (Native)</div>
+      </div>
+    </div>
   </div>
+
+  <div class="footer">References available upon request &nbsp;·&nbsp; Generated by AI Brain &nbsp;·&nbsp; aibrainstartup.com</div>
+</div>
 </body>
 </html>
