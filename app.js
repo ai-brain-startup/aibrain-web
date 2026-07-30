@@ -654,13 +654,29 @@ function initModal() {
    -------------------------------------------------------------------------- */
 function initCardSpotlight() {
   document.querySelectorAll('.glass-card, .hud-stat-card').forEach(card => {
+    let rect = null;
+    let ticking = false;
+
+    function updateRect() {
+      rect = card.getBoundingClientRect();
+    }
+
+    card.addEventListener('mouseenter', updateRect, { passive: true });
+    window.addEventListener('resize', updateRect, { passive: true });
+
     card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
+      if (!rect) updateRect();
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
   });
 }
 
