@@ -84,16 +84,16 @@ Maps multi-dimensional entity relationships, forming a dynamic web of interconne
 
 ---
 
-## 💻 Developer SDK Quickstart
+## 💻 Developer API Specification & Early Access Preview
 
-Integrate AI Brain persistent vector graph memory into your applications with 5 lines of code:
+> *Note: SDK packages (`aibrain-sdk`) are distributed via private PyPI/npm registries to waitlist members upon Early Access key issuance.*
 
-### Installation
+### Installation & API Interface Preview
 ```bash
-# Python SDK
+# Python SDK (Early Access)
 pip install aibrain-sdk
 
-# Node.js / TypeScript SDK
+# Node.js / TypeScript SDK (Early Access)
 npm install @aibrain/sdk
 ```
 
