@@ -181,11 +181,28 @@
   }
   </script>
 
-  <!-- Google Fonts: Outfit & Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Critical Above-the-Fold CSS Inlined for Instant Mobile Rendering -->
+  <style>
+    :root{--bg-dark:#070913;--bg-card:rgba(13,19,32,0.75);--text-main:#f8fafc;--text-muted:#94a3b8;--cyan:#00f2fe;--purple:#7000ff;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-heading:'Outfit','Inter',sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background-color:var(--bg-dark);color:var(--text-main);font-family:var(--font-sans);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,9,19,0.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);padding:14px 24px;}
+    .nav-container{max-width:1380px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+    .brand-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-heading);font-weight:800;font-size:1.35rem;color:var(--text-main);}
+    .hero-section{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:120px 20px 60px 20px;}
+    .hero-title{font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;text-align:center;margin-bottom:16px;}
+    .gradient-text{background:linear-gradient(135deg,#00f2fe 0%,#4facfe 50%,#00c6ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  </style>
+
+  <!-- Optimized Non-Blocking Google Fonts Loading -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@600;800;900&display=swap">
+  </noscript>
+
+  <!-- Non-Blocking Async CSS Stylesheet -->
+  <link rel="preload" as="style" href="styles.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
 
@@ -851,7 +868,7 @@ response = client.agents.<span class="code-keyword">run</span>(
     </div>
   </div>
 
-  <!-- Custom JavaScript -->
-  <script src="app.js"></script>
+  <!-- Custom JavaScript (Deferred to prevent render blocking) -->
+  <script src="app.js" defer></script>
 </body>
 </html>
