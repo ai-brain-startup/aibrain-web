@@ -2153,6 +2153,7 @@ h1, h2, h3, h4 {
 
   /* ── AGI HUD Grid — 2 Column Compact Layout ── */
   .agi-hud-grid {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
     margin: 12px auto 20px auto;
