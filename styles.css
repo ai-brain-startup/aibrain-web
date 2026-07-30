@@ -261,6 +261,8 @@ h1, h2, h3, h4 {
   opacity: 0.28;
   pointer-events: none;
   z-index: 1;
+  will-change: transform;
+  transform: translateZ(0);
   animation: floatOrb 14s infinite alternate ease-in-out;
 }
 
@@ -786,6 +788,8 @@ h1, h2, h3, h4 {
   position: relative;
   width: clamp(280px, 42vw, 480px);
   height: clamp(280px, 42vw, 480px);
+  aspect-ratio: 1 / 1;
+  contain: layout size style;
   max-width: 92vw;
   max-height: 92vw;
   display: flex;
