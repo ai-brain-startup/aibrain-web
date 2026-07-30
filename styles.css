@@ -487,11 +487,14 @@ h1, h2, h3, h4 {
 
 .canvas-wrapper {
   position: relative;
-  width: 500px;
-  height: 500px;
+  width: clamp(280px, 42vw, 480px);
+  height: clamp(280px, 42vw, 480px);
+  max-width: 92vw;
+  max-height: 92vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 #neuralCanvas {
@@ -501,11 +504,11 @@ h1, h2, h3, h4 {
 
 .canvas-overlay-tag {
   position: absolute;
-  font-size: 0.75rem;
+  font-size: clamp(0.68rem, 2vw, 0.75rem);
   font-weight: 600;
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-glass);
@@ -513,6 +516,8 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 6px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  z-index: 5;
 }
 
 .canvas-overlay-tag .dot {
@@ -525,9 +530,8 @@ h1, h2, h3, h4 {
 .dot.cyan { background: var(--cyan); }
 .dot.purple { background: var(--purple); }
 
-.tag-agents { top: 20px; right: 10px; }
-.tag-memory { bottom: 30px; left: 10px; }
-.tag-learning { top: 120px; left: -10px; }
+.tag-agents { top: 10px; right: 0; }
+.tag-memory { bottom: 15px; left: 0; }
 
 /* --------------------------------------------------------------------------
    7. Cloud Integration Section (.cloud-grid)

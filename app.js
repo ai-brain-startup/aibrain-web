@@ -37,34 +37,38 @@ function initNeuralCanvas() {
   function resize() {
     dpr = window.devicePixelRatio || 1;
     const rect = canvas.parentElement.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
+    width = rect.width || 300;
+    height = rect.height || 300;
 
     // Scale internal canvas dimensions for 4K / Retina HD crispness
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
+
+    // Dynamic radius proportional to canvas size (36% of minimum dimension)
+    const currentRadius = Math.min(width, height) * 0.36;
+
+    // Create 3D points on a sphere surface (Fibonacci sphere algorithm)
+    points = [];
+    const phi = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < pointCount; i++) {
+      const y = 1 - (i / (pointCount - 1)) * 2;
+      const radiusAtY = Math.sqrt(1 - y * y);
+      const theta = phi * i;
+
+      const x = Math.cos(theta) * radiusAtY;
+      const z = Math.sin(theta) * radiusAtY;
+
+      points.push({
+        x: x * currentRadius,
+        y: y * currentRadius,
+        z: z * currentRadius
+      });
+    }
   }
 
   window.addEventListener('resize', resize, { passive: true });
   resize();
-
-  // Create 3D points on a sphere surface (Fibonacci sphere algorithm)
-  const phi = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < pointCount; i++) {
-    const y = 1 - (i / (pointCount - 1)) * 2;
-    const radiusAtY = Math.sqrt(1 - y * y);
-    const theta = phi * i;
-
-    const x = Math.cos(theta) * radiusAtY;
-    const z = Math.sin(theta) * radiusAtY;
-
-    points.push({
-      x: x * radius,
-      y: y * radius,
-      z: z * radius
-    });
-  }
 
   let mouseX = 0, mouseY = 0;
   window.addEventListener('mousemove', (e) => {
