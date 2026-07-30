@@ -1417,26 +1417,31 @@ h1, h2, h3, h4 {
 
 /* Mobile Devices & Split Windows (max-width: 768px) */
 @media (max-width: 768px) {
+  /* ── Scroll Margin for Sticky Navbar ── */
+  section, .section {
+    scroll-margin-top: 70px;
+    padding: 40px 16px;
+  }
+
   /* ── Navbar ── */
   .nav-container {
     padding: 8px 14px;
   }
 
   .brand-logo {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
-  .nav-actions .btn-glow {
-    display: none;
+  /* Hide nav buttons in top bar on mobile — hamburger drawer handles navigation */
+  .nav-actions {
+    display: none !important;
   }
 
-  /* ── Hero Section — single column, sphere on top ── */
+  /* ── Hero Section — Natural height flow ── */
   .hero-section {
-    min-height: 100svh;
-    min-height: 100vh; /* fallback */
-    display: flex;
-    align-items: flex-start;
-    padding: 68px 16px 28px 16px;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 75px 16px 40px 16px;
     overflow: hidden;
   }
 
@@ -1444,7 +1449,7 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     width: 100%;
     text-align: center;
   }
@@ -1456,6 +1461,7 @@ h1, h2, h3, h4 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 4px;
   }
 
   .hero-content {
@@ -1470,7 +1476,7 @@ h1, h2, h3, h4 {
   .badge-row {
     justify-content: center;
     gap: 6px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     flex-wrap: wrap;
   }
 
@@ -1482,17 +1488,17 @@ h1, h2, h3, h4 {
 
   /* ── Hero text ── */
   .hero-title {
-    font-size: clamp(1.7rem, 7vw, 2.2rem);
-    line-height: 1.15;
-    margin-bottom: 10px;
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+    line-height: 1.18;
+    margin-bottom: 12px;
     text-align: center;
   }
 
   .hero-description {
     font-size: 0.88rem;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     line-height: 1.5;
-    max-width: 94%;
+    max-width: 98%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -1504,7 +1510,7 @@ h1, h2, h3, h4 {
     align-items: center;
     gap: 10px;
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
     margin: 0 auto 16px auto;
   }
 
@@ -1512,14 +1518,14 @@ h1, h2, h3, h4 {
     width: 100%;
     justify-content: center;
     padding: 12px 16px;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     border-radius: var(--radius-sm);
   }
 
   /* ── 3D sphere canvas ── */
   .canvas-wrapper {
-    width: clamp(200px, 58vw, 270px);
-    height: clamp(200px, 58vw, 270px);
+    width: clamp(200px, 58vw, 260px);
+    height: clamp(200px, 58vw, 260px);
     margin: 0 auto;
   }
 
@@ -1542,51 +1548,48 @@ h1, h2, h3, h4 {
   }
 
   .stat-value {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .stat-label {
     font-size: 0.72rem;
   }
 
-  /* ── Sections ── */
-  .section {
-    padding: 36px 16px;
-  }
-
+  /* ── Section headers ── */
   .section-header {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .section-title {
     font-size: 1.35rem;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .section-subtitle {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     line-height: 1.45;
   }
 
   .glass-card {
-    padding: 16px 14px;
+    padding: 18px 14px;
     border-radius: 12px;
   }
 
   /* ── Grids → single column ── */
   .cloud-grid, .grid-4, .grid-3, .faq-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .agent-content {
     grid-template-columns: 1fr;
   }
 
-  /* ── SDK Code Preview — fix horizontal overflow ── */
+  /* ── SDK Code Preview — clean scrollable box ── */
   .code-preview-card {
     overflow: hidden;
     border-radius: 12px;
+    width: 100%;
   }
 
   .terminal-header {
@@ -1596,7 +1599,9 @@ h1, h2, h3, h4 {
   .terminal-body {
     padding: 12px 14px;
     font-size: 0.74rem;
+    line-height: 1.5;
     overflow-x: auto;
+    white-space: pre;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(0,240,255,0.3) transparent;
@@ -1604,46 +1609,102 @@ h1, h2, h3, h4 {
 
   .terminal-body code {
     white-space: pre;
-    display: block;
+    display: inline-block;
     min-width: max-content;
   }
 
   /* ── GCP Architecture visual ── */
   .gcp-arch-visual {
-    padding: 14px 12px;
-    margin-top: 16px;
+    padding: 16px 12px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .gcp-arch-header h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
-  .gcp-flow-node {
-    padding: 10px 8px;
+  .gcp-flow-grid {
+    flex-direction: column;
+    gap: 8px;
     width: 100%;
   }
 
+  .gcp-flow-node {
+    padding: 12px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gcp-flow-arrow {
+    transform: rotate(90deg);
+    font-size: 1.1rem;
+    margin: 2px 0;
+  }
+
   .node-title {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 
   .node-desc {
-    font-size: 0.7rem;
+    font-size: 0.74rem;
   }
 
   /* ── Calculator ── */
   .calc-card {
-    padding: 16px 14px;
+    padding: 18px 14px;
   }
 
   /* ── Demo section ── */
   .demo-box {
     width: 100%;
+    padding: 16px 12px;
   }
 
   .demo-header {
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
+  }
+
+  .demo-title {
+    font-size: 0.9rem;
+  }
+
+  .demo-badge {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+
+  .demo-suggestions {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .suggest-btn {
+    width: 100%;
+    text-align: left;
+    font-size: 0.76rem;
+    padding: 7px 12px;
+    border-radius: 8px;
+  }
+
+  .demo-input-row {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .demo-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.82rem;
+  }
+
+  .demo-input-row .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   /* ── Agent grid ── */
@@ -1660,6 +1721,7 @@ h1, h2, h3, h4 {
   .waitlist-input {
     width: 100%;
     text-align: left;
+    box-sizing: border-box;
   }
 
   .waitlist-form .btn {
