@@ -21,6 +21,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- JSON-LD TechArticle & Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://aibrainstartup.com/architecture.html#techarticle",
+        "headline": "Enterprise Cloud Infrastructure & Hypergraph Architecture",
+        "description": "Production-grade distributed hypergraph memory mesh, GCP TPU v5e compute clusters, and GKE serverless container orchestration built for global AGI scale.",
+        "author": {
+          "@type": "Person",
+          "name": "Bhoja Ram Choudhary"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AI Brain",
+          "logo": "https://aibrainstartup.com/logo.png"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aibrainstartup.com/architecture.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://aibrainstartup.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Architecture & Specs",
+            "item": "https://aibrainstartup.com/architecture.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <meta name="theme-color" content="#070913">
   <link rel="stylesheet" href="styles.css">
 </head>

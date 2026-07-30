@@ -11,6 +11,48 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#070913">
   
+  <!-- JSON-LD TechArticle & Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://aibrainstartup.com/docs.html#techarticle",
+        "headline": "AGI Developer Documentation & Cognitive Hypergraph SDK",
+        "description": "Official AGI Developer Documentation, Cognitive Hypergraph SDK specs, Autonomous Swarm APIs, and Quickstart guides for AI Brain.",
+        "author": {
+          "@type": "Person",
+          "name": "Bhoja Ram Choudhary"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "AI Brain",
+          "logo": "https://aibrainstartup.com/logo.png"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://aibrainstartup.com/docs.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://aibrainstartup.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Developer Docs",
+            "item": "https://aibrainstartup.com/docs.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
