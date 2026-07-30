@@ -136,7 +136,7 @@ AI Brain is engineered for high-throughput containerized deployments on **Google
 
 | Founder & Chief Architect | Contact & Verified Links |
 | :--- | :--- |
-| **Bhoja Ram Choudhary**<br/>*AI Engineer & Technology Entrepreneur* | 🏢 **Domain**: [aibrainstartup.com](https://aibrainstartup.com/)<br/>📧 **Email**: [team@aibrainstartup.com](mailto:team@aibrainstartup.com)<br/>📞 **Direct Phone**: +91 94611 27967<br/>💼 **LinkedIn**: [bhoja-ram-choudhary](https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/) |
+| **Bhoja Ram Choudhary**<br/>*AI Engineer & Technology Entrepreneur* | 🏢 **Domain**: [aibrainstartup.com](https://aibrainstartup.com/)<br/>📧 **Founder Email**: [founder@aibrainstartup.com](mailto:founder@aibrainstartup.com)<br/>📫 **Team Email**: [team@aibrainstartup.com](mailto:team@aibrainstartup.com)<br/>📞 **Direct Phone**: +91 94611 27967<br/>💼 **LinkedIn**: [bhoja-ram-choudhary](https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/) |
 
 </div>
 
