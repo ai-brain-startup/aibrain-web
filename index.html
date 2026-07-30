@@ -729,7 +729,7 @@ response = client.agents.<span class="code-keyword">run</span>(
           <ul>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="https://www.linkedin.com/in/bhoja-ram-choudhary-b992703b8/" target="_blank" rel="noopener">Founder LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/" target="_blank" rel="noopener">Founder LinkedIn</a></li>
             <li><a href="#waitlist">Early Access</a></li>
           </ul>
         </div>
@@ -739,6 +739,7 @@ response = client.agents.<span class="code-keyword">run</span>(
           <ul>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
             <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><button class="footer-modal-btn open-terms-btn">Quick Terms Popup</button></li>
             <li><a href="docs.html">API Documentation</a></li>
           </ul>
         </div>
@@ -750,7 +751,36 @@ response = client.agents.<span class="code-keyword">run</span>(
     </div>
   </footer>
 
-  <!-- JavaScript App Logic -->
+  <!-- Terms & Privacy Modal Popup -->
+  <div id="termsModal" class="modal-backdrop">
+    <div class="modal-box glass-card">
+      <button class="modal-close" id="btnCloseModal">&times;</button>
+      <div class="modal-header">
+        <span class="modal-badge">LEGAL COMPLIANCE</span>
+        <h2>Terms of Service & Privacy Summary</h2>
+      </div>
+      <div class="modal-body">
+        <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">1. Terms Overview</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">By accessing AI Brain (aibrainstartup.com), you agree to be bound by these terms governing access to our persistent cognitive intelligence platform and developer APIs.</p>
+        
+        <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">2. Enterprise Data Privacy & Security</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">We prioritize enterprise data privacy. Vector embeddings, context graphs, and user interactions are encrypted in transit and at rest on Google Cloud Platform infrastructure.</p>
+        
+        <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">3. Intellectual Property</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; margin-bottom: 12px;">All neural architecture, multi-agent frameworks, and persistent memory code bases are proprietary assets of AI Brain and Founder Bhoja Ram Choudhary.</p>
+        
+        <h3 style="color: var(--cyan); margin-bottom: 6px; font-size: 0.95rem;">4. Official Contact</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.5;">For questions or enterprise self-hosted cluster inquiries, contact <a href="mailto:team@aibrainstartup.com" class="link-glow">team@aibrainstartup.com</a>.</p>
+      </div>
+      <div class="modal-footer">
+        <a href="privacy-policy.html" class="btn btn-outline btn-sm">Full Privacy Policy</a>
+        <a href="terms-of-service.html" class="btn btn-outline btn-sm">Full Terms Page</a>
+        <button class="btn btn-primary btn-sm" id="btnAcceptModal">I Understand</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom JavaScript -->
   <script src="app.js"></script>
 </body>
 </html>

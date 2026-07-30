@@ -521,3 +521,42 @@ function initMemoryCalculator() {
   promptsInput.addEventListener('input', calculate);
   calculate();
 }
+
+/* --------------------------------------------------------------------------
+   7. Terms & Conditions Modal Popup Controller
+   -------------------------------------------------------------------------- */
+function initModal() {
+  const modal = document.getElementById('termsModal');
+  const openBtns = document.querySelectorAll('.open-terms-btn');
+  const closeBtn = document.getElementById('btnCloseModal');
+  const acceptBtn = document.getElementById('btnAcceptModal');
+
+  if (!modal) return;
+
+  function openModal(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openBtns.forEach(btn => btn.addEventListener('click', openModal));
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (acceptBtn) acceptBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initModal();
+});
