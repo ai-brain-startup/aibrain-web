@@ -530,8 +530,14 @@ function initModal() {
   const openBtns = document.querySelectorAll('.open-terms-btn');
   const closeBtn = document.getElementById('btnCloseModal');
   const acceptBtn = document.getElementById('btnAcceptModal');
+  const headerBackBtn = document.getElementById('btnHeaderBackHome');
+  const footerBackBtn = document.getElementById('btnFooterBackHome');
 
   if (!modal) return;
+
+  // Ensure modal is cleanly closed on initial load
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
 
   function openModal(e) {
     if (e) e.preventDefault();
@@ -547,6 +553,8 @@ function initModal() {
   openBtns.forEach(btn => btn.addEventListener('click', openModal));
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (acceptBtn) acceptBtn.addEventListener('click', closeModal);
+  if (headerBackBtn) headerBackBtn.addEventListener('click', closeModal);
+  if (footerBackBtn) footerBackBtn.addEventListener('click', closeModal);
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
