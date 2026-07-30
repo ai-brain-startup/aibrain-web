@@ -360,7 +360,7 @@ h1, h2, h3, h4 {
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  padding: 160px 24px 100px 24px;
+  padding: 100px 24px 40px 24px;
   overflow: hidden;
 }
 
@@ -389,34 +389,36 @@ h1, h2, h3, h4 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--cyan);
   background: rgba(0, 240, 255, 0.08);
   border: 1px solid rgba(0, 240, 255, 0.2);
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: 3.5rem;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 14px;
   letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .hero-description {
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   color: var(--text-muted);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   max-width: 560px;
+  line-height: 1.5;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .trust-strip {
@@ -1373,8 +1375,42 @@ h1, h2, h3, h4 {
 
 /* Mobile Devices & Split Windows (max-width: 768px) */
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 80px 16px 20px 16px;
+  }
+
+  .badge-pill {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    margin-bottom: 10px;
+  }
+
   .hero-title {
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-size: clamp(1.7rem, 6.5vw, 2.2rem);
+    margin-bottom: 8px;
+  }
+
+  .hero-description {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+    max-width: 165px;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    border-radius: var(--radius-sm);
   }
 
   .cloud-grid, .grid-4, .grid-3, .faq-grid {
@@ -1386,20 +1422,11 @@ h1, h2, h3, h4 {
   }
 
   .canvas-wrapper {
-    width: min(320px, 90vw);
-    height: min(320px, 90vw);
+    width: clamp(230px, 58vw, 320px);
+    height: clamp(230px, 58vw, 320px);
   }
 
   .footer-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
   }
 }
