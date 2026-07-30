@@ -2007,6 +2007,10 @@ h1, h2, h3, h4 {
     display: none !important;
   }
 
+  .nav-actions {
+    display: none !important;
+  }
+
   .mobile-toggle {
     display: inline-flex !important;
   }
@@ -2075,36 +2079,38 @@ h1, h2, h3, h4 {
     padding: 32px 14px;
   }
 
-  /* ── Navbar — Slim & Compact ── */
+  /* ── Navbar — Ultra Thin Strip ── */
   .navbar {
     padding: 0 !important;
-    box-shadow: 0 2px 12px rgba(0, 240, 255, 0.08);
+    box-shadow: 0 1px 8px rgba(0, 240, 255, 0.06);
   }
 
   .nav-container {
-    padding: 6px 12px;
+    padding: 3px 10px;
+    min-height: 0;
   }
 
   .brand-logo {
-    font-size: 0.92rem;
-    gap: 5px;
+    font-size: 0.82rem;
+    gap: 4px;
   }
 
   .logo-icon {
-    font-size: 1rem;
+    font-size: 0.88rem;
   }
 
   .mobile-toggle {
-    padding: 5px 10px;
-    height: 32px;
-    font-size: 0.78rem;
-    border-radius: 6px;
-    gap: 4px;
-    box-shadow: 0 0 12px rgba(0, 242, 254, 0.35);
+    padding: 3px 8px;
+    height: 26px;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    gap: 3px;
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.3);
   }
 
   .mobile-toggle-icon {
-    font-size: 0.95rem;
+    font-size: 0.82rem;
+    line-height: 1;
   }
 
   .nav-actions {
@@ -2132,7 +2138,7 @@ h1, h2, h3, h4 {
   .hero-section {
     min-height: auto !important;
     height: auto !important;
-    padding: 60px 14px 30px 14px;
+    padding: 50px 14px 28px 14px;
     overflow: hidden;
   }
 
@@ -2466,22 +2472,22 @@ h1, h2, h3, h4 {
 @media (max-width: 390px) {
   /* ── Navbar — Ultra Slim for small phones ── */
   .nav-container {
-    padding: 5px 10px;
+    padding: 2px 8px;
   }
 
   .brand-logo {
-    font-size: 0.85rem;
-    gap: 4px;
+    font-size: 0.78rem;
+    gap: 3px;
   }
 
   .logo-icon {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 
   .mobile-toggle {
-    padding: 4px 8px;
-    height: 28px;
-    font-size: 0.72rem;
+    padding: 2px 6px;
+    height: 24px;
+    font-size: 0.65rem;
   }
 
   .hero-section {
