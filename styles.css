@@ -32,9 +32,9 @@
   --radius-md: 12px;
   --radius-sm: 8px;
 
-  /* Transitions (GPU Composited Properties) */
-  --transition-fast: transform 0.2s ease, opacity 0.2s ease;
-  --transition-smooth: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* --------------------------------------------------------------------------
@@ -261,8 +261,6 @@ h1, h2, h3, h4 {
   opacity: 0.28;
   pointer-events: none;
   z-index: 1;
-  will-change: transform;
-  transform: translateZ(0);
   animation: floatOrb 14s infinite alternate ease-in-out;
 }
 
@@ -556,15 +554,12 @@ h1, h2, h3, h4 {
   gap: 10px;
   box-shadow: -15px 0 40px rgba(0, 0, 0, 0.85);
   z-index: 10005;
-  right: 0;
-  transform: translateX(100%);
-  will-change: transform;
-  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
 }
 
 .mobile-nav-drawer.active {
-  transform: translateX(0) !important;
+  right: 0 !important;
   visibility: visible !important;
   opacity: 1 !important;
   display: flex !important;
@@ -791,8 +786,6 @@ h1, h2, h3, h4 {
   position: relative;
   width: clamp(280px, 42vw, 480px);
   height: clamp(280px, 42vw, 480px);
-  aspect-ratio: 1 / 1;
-  contain: layout size style;
   max-width: 92vw;
   max-height: 92vw;
   display: flex;
@@ -1516,10 +1509,9 @@ h1, h2, h3, h4 {
 
 .footer-contact-info p {
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: var(--text-dim);
 }
 
-.footer-col h3,
 .footer-col h4 {
   font-size: 0.95rem;
   margin-bottom: 16px;
@@ -1571,7 +1563,7 @@ h1, h2, h3, h4 {
   padding-top: 24px;
   border-top: 1px solid var(--border-glass);
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-dim);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -186,14 +186,12 @@
     :root{--bg-dark:#070913;--bg-card:rgba(13,19,32,0.75);--text-main:#f8fafc;--text-muted:#94a3b8;--cyan:#00f2fe;--purple:#7000ff;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--font-heading:'Outfit','Inter',sans-serif;}
     *{margin:0;padding:0;box-sizing:border-box;}
     body{background-color:var(--bg-dark);color:var(--text-main);font-family:var(--font-sans);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
-    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,9,19,0.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);padding:14px 24px;min-height:60px;}
+    .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,9,19,0.8);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.08);padding:14px 24px;}
     .nav-container{max-width:1380px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-    .brand-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-heading);font-weight:800;font-size:1.35rem;color:var(--text-main);min-width:110px;min-height:28px;}
-    .hero-section{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:120px 20px 60px 20px;contain:layout;}
-    .hero-title{font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;text-align:center;margin-bottom:16px;min-height:2.2em;}
+    .brand-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-heading);font-weight:800;font-size:1.35rem;color:var(--text-main);}
+    .hero-section{min-height:90vh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:120px 20px 60px 20px;}
+    .hero-title{font-family:var(--font-heading);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;line-height:1.1;text-align:center;margin-bottom:16px;}
     .gradient-text{background:linear-gradient(135deg,#00f2fe 0%,#4facfe 50%,#00c6ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-    .canvas-wrapper{position:relative;width:clamp(280px,42vw,480px);height:clamp(280px,42vw,480px);aspect-ratio:1/1;contain:layout size style;margin:0 auto;}
-    .ambient-orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:0.28;pointer-events:none;z-index:1;will-change:transform;transform:translateZ(0);}
   </style>
 
   <!-- Optimized Non-Blocking Google Fonts Loading -->
