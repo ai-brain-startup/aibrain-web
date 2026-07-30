@@ -50,7 +50,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -59,8 +61,12 @@ body {
   font-family: var(--font-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
 }
 
 a {
@@ -2040,3 +2046,28 @@ h1, h2, h3, h4 {
     padding: 8px 14px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Mobile Zoom & Auto-Zoom Prevention Fixes (iOS Safari & Android Chrome)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  /* Prevent iOS Safari / Mobile Chrome automatic forced zoom on input focus */
+  input,
+  textarea,
+  select,
+  .form-input,
+  .form-select,
+  .demo-input,
+  .waitlist-input {
+    font-size: 16px !important; /* Mobile browsers force auto-zoom if font-size < 16px */
+    touch-action: manipulation;
+  }
+  
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    position: relative;
+  }
+}
+
