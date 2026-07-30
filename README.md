@@ -5,7 +5,7 @@
 ### *Persistent Artificial Intelligence & Autonomous Agent Infrastructure*
 
 [![Website](https://img.shields.io/badge/Website-aibrainstartup.com-00f2fe?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aibrainstartup.com/)
-[![Founder](https://img.shields.io/badge/Founder-Bhoja_Ram_Choudhary-7000ff?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhoja-ram-choudhary-b992703b8/)
+[![Founder](https://img.shields.io/badge/Founder-Bhoja_Ram_Choudhary-7000ff?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/)
 [![Contact](https://img.shields.io/badge/Email-team%40aibrainstartup.com-00c853?style=for-the-badge&logo=gmail&logoColor=white)](mailto:team@aibrainstartup.com)
 [![Status](https://img.shields.io/badge/System_Status-Active_%E2%80%94_Research_Mode-ff9100?style=for-the-badge)](https://aibrainstartup.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
@@ -136,7 +136,7 @@ AI Brain is engineered for high-throughput containerized deployments on **Google
 
 | Founder & Chief Architect | Contact & Verified Links |
 | :--- | :--- |
-| **Bhoja Ram Choudhary**<br/>*AI Engineer & Technology Entrepreneur* | 🏢 **Domain**: [aibrainstartup.com](https://aibrainstartup.com/)<br/>📧 **Email**: [team@aibrainstartup.com](mailto:team@aibrainstartup.com)<br/>📞 **Direct Phone**: +91 94611 27967<br/>💼 **LinkedIn**: [bhoja-ram-choudhary](https://www.linkedin.com/in/bhoja-ram-choudhary-b992703b8/) |
+| **Bhoja Ram Choudhary**<br/>*AI Engineer & Technology Entrepreneur* | 🏢 **Domain**: [aibrainstartup.com](https://aibrainstartup.com/)<br/>📧 **Email**: [team@aibrainstartup.com](mailto:team@aibrainstartup.com)<br/>📞 **Direct Phone**: +91 94611 27967<br/>💼 **LinkedIn**: [bhoja-ram-choudhary](https://www.linkedin.com/in/bhoja-ram-choudhary-ai-brain-/) |
 
 </div>
 
