@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. 3D Neural Sphere Canvas Animation (Retina/4K High-DPI Scaled)
+   1. Next-Generation AGI Dual-Core Quantum 3D Neural Sphere Animation
    -------------------------------------------------------------------------- */
 function initNeuralCanvas() {
   const canvas = document.getElementById('neuralCanvas');
@@ -21,48 +21,67 @@ function initNeuralCanvas() {
 
   const ctx = canvas.getContext('2d', { alpha: true });
   let width, height, dpr;
-  let points = [];
-  const pointCount = 45;
-  const radius = 140;
-  let angleX = 0.0015;
-  let angleY = 0.0025;
+  let outerPoints = [];
+  let innerPoints = [];
+  let signalPulses = [];
+  
+  const outerNodeCount = 55;
+  const innerNodeCount = 22;
+  let angleX = 0.002;
+  let angleY = 0.0035;
+  let innerAngleX = -0.003;
+  let innerAngleY = -0.005;
   let isCanvasVisible = true;
+  let time = 0;
 
-  // IntersectionObserver to pause rendering when canvas is offscreen
+  // IntersectionObserver to pause rendering when offscreen
   const observer = new IntersectionObserver((entries) => {
     isCanvasVisible = entries[0].isIntersecting;
   }, { threshold: 0.1 });
   observer.observe(canvas);
 
+  function generateSpherePoints(count, r) {
+    const pts = [];
+    const phi = Math.PI * (3 - Math.sqrt(5)); // Golden ratio angle
+    for (let i = 0; i < count; i++) {
+      const y = 1 - (i / (count - 1)) * 2;
+      const radiusAtY = Math.sqrt(1 - y * y);
+      const theta = phi * i;
+
+      pts.push({
+        x: Math.cos(theta) * radiusAtY * r,
+        y: y * r,
+        z: Math.sin(theta) * radiusAtY * r,
+        pulse: Math.random() * Math.PI * 2
+      });
+    }
+    return pts;
+  }
+
   function resize() {
     dpr = window.devicePixelRatio || 1;
     const rect = canvas.parentElement.getBoundingClientRect();
-    width = rect.width || 300;
-    height = rect.height || 300;
+    width = rect.width || 320;
+    height = rect.height || 320;
 
-    // Scale internal canvas dimensions for 4K / Retina HD crispness
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     ctx.scale(dpr, dpr);
 
-    // Dynamic radius proportional to canvas size (36% of minimum dimension)
-    const currentRadius = Math.min(width, height) * 0.36;
+    const outerRadius = Math.min(width, height) * 0.38;
+    const innerRadius = outerRadius * 0.42;
 
-    // Create 3D points on a sphere surface (Fibonacci sphere algorithm)
-    points = [];
-    const phi = Math.PI * (3 - Math.sqrt(5));
-    for (let i = 0; i < pointCount; i++) {
-      const y = 1 - (i / (pointCount - 1)) * 2;
-      const radiusAtY = Math.sqrt(1 - y * y);
-      const theta = phi * i;
+    outerPoints = generateSpherePoints(outerNodeCount, outerRadius);
+    innerPoints = generateSpherePoints(innerNodeCount, innerRadius);
 
-      const x = Math.cos(theta) * radiusAtY;
-      const z = Math.sin(theta) * radiusAtY;
-
-      points.push({
-        x: x * currentRadius,
-        y: y * currentRadius,
-        z: z * currentRadius
+    // Initialize 8 dynamic synaptic energy pulses traveling between nodes
+    signalPulses = [];
+    for (let i = 0; i < 10; i++) {
+      signalPulses.push({
+        from: Math.floor(Math.random() * outerNodeCount),
+        to: Math.floor(Math.random() * outerNodeCount),
+        progress: Math.random(),
+        speed: 0.01 + Math.random() * 0.015
       });
     }
   }
@@ -71,83 +90,180 @@ function initNeuralCanvas() {
   resize();
 
   let mouseX = 0, mouseY = 0;
-  window.addEventListener('mousemove', (e) => {
+  function handleMove(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
-    mouseX = (e.clientX - rect.left - width / 2) * 0.00003;
-    mouseY = (e.clientY - rect.top - height / 2) * 0.00003;
+    mouseX = (clientX - rect.left - width / 2) * 0.00004;
+    mouseY = (clientY - rect.top - height / 2) * 0.00004;
+  }
+
+  window.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY), { passive: true });
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+      handleMove(e.touches[0].clientX, e.touches[0].clientY);
+    }
   }, { passive: true });
+
+  function projectPoint(p, rotX, rotY, cx, cy) {
+    let x1 = p.x * Math.cos(rotY) - p.z * Math.sin(rotY);
+    let z1 = p.z * Math.cos(rotY) + p.x * Math.sin(rotY);
+
+    let y2 = p.y * Math.cos(rotX) - z1 * Math.sin(rotX);
+    let z2 = z1 * Math.cos(rotX) + p.y * Math.sin(rotX);
+
+    p.x = x1;
+    p.y = y2;
+    p.z = z2;
+
+    const perspective = 320;
+    const scale = perspective / (perspective + z2);
+    return {
+      x: p.x * scale + cx,
+      y: p.y * scale + cy,
+      z: z2,
+      scale: scale,
+      pulse: p.pulse
+    };
+  }
 
   function animate() {
     if (isCanvasVisible) {
       ctx.clearRect(0, 0, width, height);
+      time += 0.02;
 
       const cx = width / 2;
       const cy = height / 2;
 
+      // 1. Draw Background Radial Quantum Energy Glow
+      const bgGlow = ctx.createRadialGradient(cx, cy, 5, cx, cy, Math.min(width, height) * 0.45);
+      bgGlow.addColorStop(0, 'rgba(0, 240, 255, 0.15)');
+      bgGlow.addColorStop(0.5, 'rgba(112, 0, 255, 0.08)');
+      bgGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = bgGlow;
+      ctx.beginPath();
+      ctx.arc(cx, cy, Math.min(width, height) * 0.45, 0, Math.PI * 2);
+      ctx.fill();
+
       const rotX = angleX + mouseY;
       const rotY = angleY + mouseX;
+      const inRotX = innerAngleX - mouseY * 1.5;
+      const inRotY = innerAngleY - mouseX * 1.5;
 
-      const projectedPoints = [];
+      const outerProjected = outerPoints.map(p => projectPoint(p, rotX, rotY, cx, cy));
+      const innerProjected = innerPoints.map(p => projectPoint(p, inRotX, inRotY, cx, cy));
 
-      // Rotate and project 3D points
-      for (let p of points) {
-        let x1 = p.x * Math.cos(rotY) - p.z * Math.sin(rotY);
-        let z1 = p.z * Math.cos(rotY) + p.x * Math.sin(rotY);
+      // 2. Draw Outer Sphere Synaptic Network Lines
+      const maxConnectDist = width * 0.28;
+      const maxDistSq = maxConnectDist * maxConnectDist;
 
-        let y2 = p.y * Math.cos(rotX) - z1 * Math.sin(rotX);
-        let z2 = z1 * Math.cos(rotX) + p.y * Math.sin(rotX);
-
-        p.x = x1;
-        p.y = y2;
-        p.z = z2;
-
-        const scale = 280 / (280 + z2);
-        const projX = p.x * scale + cx;
-        const projY = p.y * scale + cy;
-
-        projectedPoints.push({ x: projX, y: projY, z: z2, scale });
-      }
-
-      // Draw connecting lines between close nodes
-      ctx.lineWidth = 1;
-      for (let i = 0; i < projectedPoints.length; i++) {
-        for (let j = i + 1; j < projectedPoints.length; j++) {
-          const p1 = projectedPoints[i];
-          const p2 = projectedPoints[j];
+      for (let i = 0; i < outerProjected.length; i++) {
+        for (let j = i + 1; j < outerProjected.length; j++) {
+          const p1 = outerProjected[i];
+          const p2 = outerProjected[j];
 
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
           const distSq = dx * dx + dy * dy;
 
-          if (distSq < 5625) { // 75px squared distance
+          if (distSq < maxDistSq) {
             const dist = Math.sqrt(distSq);
-            const alpha = (1 - dist / 75) * 0.4;
+            const alpha = (1 - dist / maxConnectDist) * 0.45;
+            const avgZ = (p1.z + p2.z) / 2;
+
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
+
+            if (avgZ > 10) {
+              ctx.strokeStyle = `rgba(0, 240, 255, ${alpha})`;
+            } else {
+              ctx.strokeStyle = `rgba(147, 51, 234, ${alpha * 0.7})`;
+            }
+            ctx.lineWidth = avgZ > 20 ? 1.2 : 0.8;
             ctx.stroke();
           }
         }
       }
 
-      // Draw glowing nodes
-      for (let p of projectedPoints) {
-        const nodeRadius = Math.max(1.5, 3 * p.scale);
-        const alpha = Math.min(1, Math.max(0.2, (p.z + radius) / (2 * radius)));
+      // 3. Draw Synaptic Firing Energy Pulses Moving Along Network Lines
+      for (let pulse of signalPulses) {
+        pulse.progress += pulse.speed;
+        if (pulse.progress >= 1) {
+          pulse.progress = 0;
+          pulse.from = Math.floor(Math.random() * outerProjected.length);
+          pulse.to = Math.floor(Math.random() * outerProjected.length);
+        }
 
+        const pFrom = outerProjected[pulse.from];
+        const pTo = outerProjected[pulse.to];
+        if (pFrom && pTo) {
+          const px = pFrom.x + (pTo.x - pFrom.x) * pulse.progress;
+          const py = pFrom.y + (pTo.y - pFrom.y) * pulse.progress;
+
+          const pulseGlow = ctx.createRadialGradient(px, py, 0, px, py, 6);
+          pulseGlow.addColorStop(0, '#ffffff');
+          pulseGlow.addColorStop(0.5, 'rgba(0, 240, 255, 0.9)');
+          pulseGlow.addColorStop(1, 'rgba(0, 240, 255, 0)');
+
+          ctx.fillStyle = pulseGlow;
+          ctx.beginPath();
+          ctx.arc(px, py, 6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // 4. Draw Inner AGI Cognitive Core Nodes & Connections
+      for (let i = 0; i < innerProjected.length; i++) {
+        for (let j = i + 1; j < innerProjected.length; j++) {
+          const p1 = innerProjected[i];
+          const p2 = innerProjected[j];
+
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          if (dx * dx + dy * dy < maxDistSq * 0.4) {
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.strokeStyle = `rgba(236, 72, 153, 0.45)`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+
+      for (let p of innerProjected) {
+        const nodeRadius = Math.max(2, 4 * p.scale);
         ctx.beginPath();
         ctx.arc(p.x, p.y, nodeRadius, 0, Math.PI * 2);
+        ctx.fillStyle = '#ec4899';
+        ctx.shadowColor = '#ec4899';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
 
-        if (p.z > 20) {
+      // 5. Draw Outer Nodes with Glowing Z-Depth Atmosphere
+      for (let p of outerProjected) {
+        const nodeRadius = Math.max(1.8, 3.8 * p.scale);
+        const pulseSize = Math.sin(time * 3 + p.pulse) * 0.8;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, nodeRadius + pulseSize, 0, Math.PI * 2);
+
+        if (p.z > 30) {
           ctx.fillStyle = '#00f0ff';
-        } else if (p.z < -20) {
-          ctx.fillStyle = 'rgba(112, 0, 255, 0.6)';
+          ctx.shadowColor = '#00f0ff';
+          ctx.shadowBlur = 10;
+        } else if (p.z < -30) {
+          ctx.fillStyle = 'rgba(147, 51, 234, 0.7)';
+          ctx.shadowBlur = 0;
         } else {
-          ctx.fillStyle = `rgba(0, 240, 255, ${alpha})`;
+          ctx.fillStyle = '#38bdf8';
+          ctx.shadowColor = '#38bdf8';
+          ctx.shadowBlur = 4;
         }
 
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
     }
 
